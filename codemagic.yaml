@@ -8,6 +8,6 @@ workflows:
     scripts:
       - flutter clean
       - flutter pub get
-      - flutter build ios --release
+      - flutter build ios --debug
     artifacts:
-      - build/ios/iphoneos/*.ipa
+      - build/ios/iphoneos/*.app
