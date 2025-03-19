@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:trackapp/helper/responsive.dart';
 import 'package:trackapp/litls/widgets/customText.dart';
 
 class CustomColumnImageAndText extends StatelessWidget {
@@ -14,16 +15,22 @@ class CustomColumnImageAndText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-            'images/track.png'),
+            'images/track.png',
+        height: SizeConfig.screenHeight!*.3,
+        ),
         SizedBox(
           height: 20,
         ),
-      CustomText(
-          maxLines: 7,
-          textAlign: TextAlign.center,
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-          text:'Get your favorite Telda card! Pay online or in-store andenjoy the various benefits of your selected plan')
+        CustomText(
+            maxLines: 7,
+            textAlign: TextAlign.center,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+            text:
+                'Get your favorite Telda card! Pay online or in-store andenjoy the various benefits of your selected plan'),
+        SizedBox(
+          height: 30,
+        ),
       ],
     );
   }

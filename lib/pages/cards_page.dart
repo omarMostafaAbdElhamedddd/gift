@@ -12,35 +12,43 @@ class CardsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: 18, right: 18, top: 60, bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomText(text: 'Cards' , fontSize: 24,color: Colors.black,fontWeight: FontWeight.w700,),
-          Padding(
-            padding: const EdgeInsets.only(top: 100.0, left: 14, right: 14),
-            child: CustomColumnImageAndText(),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-
-
-          CustomButton(
-            onTap: () {
-              Navigator.push(context,PageRouteBuilder(pageBuilder: (context,an,sc){
-                return GetYourCard();
-              }));
-            },
-            fullWidth: true,
-            edgeInsets:
-                const EdgeInsets.symmetric(horizontal: 0, vertical: 12),
-            text: 'Get your card now',
-            textSize: 16,
-            raduis: 14,
-          ),
-        ],
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.only(left: 18, right: 18, top: 14, bottom: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomText(
+              text: 'Cards',
+              fontSize: 24,
+              color: Colors.black,
+              fontWeight: FontWeight.w700,
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 100.0, left: 14, right: 14),
+                  child: CustomColumnImageAndText(),
+                ),
+              ),
+            ),
+           
+            CustomButton(
+              onTap: () {
+                Navigator.push(context,
+                    PageRouteBuilder(pageBuilder: (context, an, sc) {
+                  return GetYourCard();
+                }));
+              },
+              fullWidth: true,
+              edgeInsets:
+                  const EdgeInsets.symmetric(horizontal: 0, vertical: 12),
+              text: 'Get your card now',
+              textSize: 16,
+              raduis: 14,
+            ),
+          ],
+        ),
       ),
     );
   }

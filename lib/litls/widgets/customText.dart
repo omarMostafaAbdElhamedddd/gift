@@ -20,7 +20,8 @@ class CustomText extends StatelessWidget {
   final double letterSpacing ;
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return
+      Text(
       text,
       maxLines: maxLines,
       textAlign: textAlign,

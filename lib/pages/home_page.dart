@@ -56,7 +56,29 @@ class _HomePageState extends State<HomePage> {
               height: SizeConfig.screenHeight! * 0.06,
             ),
 
-            CustomPageView(),
+            SizedBox(
+              height: 180,
+              child: CustomPageView(
+                controller: _controller,
+                onPageChanged: (index) {
+                  setState(() {
+                    current_page = index;
+                  });
+                },
+              ),
+            ),
+
+            // SizedBox(
+            //   height: 190,
+            //   child: ListView.builder(
+            //     itemCount: 3,
+            //       scrollDirection: Axis.horizontal,
+            //       itemBuilder:(context,index){
+            //     return CustomPageView();
+            //   }),
+            // ),
+
+
  
             // Flexible(
             //     child: CustomPageView(

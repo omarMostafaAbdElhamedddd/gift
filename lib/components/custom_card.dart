@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:trackapp/components/custom_button.dart';
 import 'package:trackapp/components/custom_list_tile.dart';
 import 'package:trackapp/components/custom_text_and_button.dart';
+import 'package:trackapp/litls/consts.dart';
+
+import '../helper/responsive.dart';
+import '../litls/widgets/customText.dart';
 
 class CustomCard extends StatelessWidget {
   CustomCard(
@@ -24,29 +28,73 @@ class CustomCard extends StatelessWidget {
   Color? textButtonColor;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10.0),
-      child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8), color: cardColor),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+    return
+      Container(
+        margin: EdgeInsets.only(right: 10),
+        width: SizeConfig.screenWidth! - 45,
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+
+        color: Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(8)
+      ),
+
+      child: Column(
+
+        children: [
+         Expanded(
+           child: Row(
+             children: [
+               Expanded(
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     CustomText(text: title , fontWeight: FontWeight.w800,fontSize: 17,),
+                      SizedBox(height: 4,),
+                      Expanded(
+                        child: Text(
+                          subtitle,
+                          maxLines: 4,
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontFamily: mainFont,
+                            overflow: TextOverflow.ellipsis,
+                            color: Colors.grey,
+                            fontSize: 16,
+                            height: 1,
+                            fontWeight: FontWeight.bold,
+
+                          ),
+                        ),
+                      ),
+                   ],
+                 ),
+               ),
+              SizedBox(width: 35,),
+              Image.asset(image , height: 100,width: 60,),
+
+             ],
+           ),
+         ),
+          SizedBox(height: 8,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              CustomTextTile(title: title, subtitle: subtitle, image: image),
-              Padding(
-                padding: const EdgeInsets.only(right: 20.0),
-                child: dismiss!
-                    ? CustomTextAndButton(
-                        textButtonColor: textButtonColor,
-                        buttonText: buttonText,
-                        buttonColor: buttonColor)
-                    : CustomButton(
-                        text: buttonText,
-                        buttonColor: buttonColor,
-                        textColor: Colors.white),
-              )
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20 , vertical: 10),
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(8)
+                ),
+                child: CustomText(text: buttonText,color: Colors.white,fontWeight: FontWeight.w600,fontSize: 14,),
+              ),
             ],
-          )),
+          ),
+
+
+
+        ],
+      ),
     );
   }
 }

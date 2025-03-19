@@ -12,42 +12,46 @@ class CustomAddNewListTile extends StatelessWidget {
       this.isText = true,
       this.icon,
       this.iconColor,
-      this.onTap});
+      this.onTap, this.onTapp});
   final String text;
   final Color circleAvatarColor;
+  final void Function()? onTapp;
   bool? isText;
   IconData? icon;
   Color? iconColor;
   void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: ListTile(
-        leading: GestureDetector(
-          onTap: onTap,
-          child: CircleAvatar(
-              backgroundColor: circleAvatarColor,
-              child: isText!
-                  ? Text(
-                      '~',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  : Icon(
-                      icon,
-                      color: iconColor,
-                      size: 20,
-                    )),
+    return GestureDetector(
+      onTap: onTapp,
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
         ),
-        title: CustomText(text: text,fontWeight: FontWeight.w600,)
+        child: ListTile(
+          leading: GestureDetector(
+            onTap: onTap,
+            child: CircleAvatar(
+                backgroundColor: circleAvatarColor,
+                child: isText!
+                    ? Text(
+                        '~',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    : Icon(
+                        icon,
+                        color: iconColor,
+                        size: 20,
+                      )),
+          ),
+          title: CustomText(text: text,fontWeight: FontWeight.w600,)
+        ),
       ),
     );
   }

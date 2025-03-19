@@ -12,7 +12,7 @@ class GetYourCard extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 10, bottom: 30),
+          padding: EdgeInsets.only(left: 16.0, right: 20.0, top: 10, bottom: 30),
           child: GetYourCardBody(id: id),
         ),
       ),

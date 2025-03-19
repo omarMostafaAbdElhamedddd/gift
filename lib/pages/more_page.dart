@@ -5,6 +5,8 @@ import 'package:trackapp/components/custom_more_component.dart';
 import 'package:trackapp/components/custom_row_of_small_cards.dart';
 import 'package:trackapp/litls/widgets/customText.dart';
 
+import '../features/profile/presentaion/profileView.dart';
+
 class MorePage extends StatelessWidget {
   const MorePage({super.key});
 
@@ -17,8 +19,13 @@ class MorePage extends StatelessWidget {
         children: [
           CustomAppBar(
             text: 'More',
-            icon: Icon(IconlyLight.profile),
-            onPressed: () {},
+            icon: Icon(Icons.account_circle , color: Colors.grey,),
+            onPressed: () {
+
+              Navigator.push(context, PageRouteBuilder(pageBuilder:(context,an,sc){
+                return ProfileView();
+              }));
+            },
           ),
           SizedBox(
             height: 30,
